@@ -14,8 +14,7 @@ export class AlgorithmService {
     private _url = "";
 
     constructor(private _http: Http) {
-        this._url = environment.translation_url;
-        this._url = "http://127.0.0.1:8000/algorithms/";
+        this._url = environment.algorithms_url;        
     }
 
     getAlgorithms() {
