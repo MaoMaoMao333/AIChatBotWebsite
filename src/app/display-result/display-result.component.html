@@ -1,0 +1,38 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Results</h3>
+    </div>
+    <div class="panel-body">
+        <div *ngIf="isError" class="alert alert-dismissible alert-warning" id="warning-alert">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <h4>Please use a different url.</h4>
+            <p>The current url is not accessible.</p>
+        </div>
+        <spinner [visible]="isLoading"></spinner>
+        <div class="row">
+            
+            <div class="col-sm-10" *ngIf="!isLoading">
+                <h4>{{ translatedTextInput }}</h4>
+                <!--<pre *ngFor="let content of processedLogContents">
+                    <div [innerHTML]="content | safe"></div>                    
+                </pre>-->
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="!isFirstTimeLoading && !isLoading" class="panel panel-primary">
+  <div class="panel-heading">Suggested Answer</div>
+  <div class="panel-body">
+     <form>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-lg-12">
+              <textarea class="form-control" rows="5" id="textArea" [value]="suggestedAnswerTextInput" (input)="suggestedAnswerTextInput = $event.target.value"></textarea>
+              <span class="help-block">Please enter text above for suggested answer with respect to the translation result.</span>
+            </div>
+          </div>
+        </div>
+         <button (click)="updateSuggestedAnswer()" type="button" class="btn btn-default right">Submit</button>
+      </form>
+  </div>
+</div>

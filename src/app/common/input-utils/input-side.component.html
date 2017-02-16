@@ -1,0 +1,52 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Translate</h3>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <form>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-lg-12">
+              <textarea class="form-control" rows="7" id="textArea" [value]="textInput" (input)="textInput = $event.target.value"></textarea>
+              <span class="help-block">Please enter text above for translation.</span>
+            </div>
+          </div>
+        </div>
+        <div class="btn-group">
+          <a href="#" class="btn btn-default">{{ selectedAlgorithm }}</a>
+          <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li *ngFor="let algorithm of algorithms">
+              <a (click)="onChangeAlgorithm(algorithm)">{{ algorithm.algorithmName }}</a>
+            </li>
+            <li class="divider"></li>
+            <li><a href="#">Reset</a></li>
+          </ul>
+        </div>
+        <button (click)="translateText()" type="button" class="btn btn-default right">Translate</button>
+      </form>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Score results</h3>
+    </div>
+    <div class="panel-body">
+      <span class="help-block left">Please use the scale below to score results.</span>
+      <span class="help-block left">1 is the worst; 5 is the best.</span>
+      <br>
+      <div class="btn-group btn-group-justified">
+        <a (click)="onUpdateScore($event.target.innerText)" class="btn btn-default">1</a>
+        <a (click)="onUpdateScore($event.target.innerText)" class="btn btn-default">2</a>
+        <a (click)="onUpdateScore($event.target.innerText)" class="btn btn-default">3</a>
+        <a (click)="onUpdateScore($event.target.innerText)" class="btn btn-default">4</a>
+        <a (click)="onUpdateScore($event.target.innerText)" class="btn btn-default">5</a>
+      </div>
+      <br>
+      <div *ngIf="isScored" class="alert alert-dismissible alert-success">
+        <button type="button" (click)="closeScoreAlert()" class="close" data-dismiss="alert">&times;</button> You have selected: <strong>{{ score }}</strong>
+      </div>
+    </div>
+  </div>
+</div>
