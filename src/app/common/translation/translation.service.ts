@@ -29,17 +29,17 @@ export class TranslationService {
             .map(res => res.json());
     }
 
-    postTranslation(text: string, algorithmId: number, algorithmName: string) {
+    postTranslation(text: string, algorithmId: number, algorithmName: string, isReload: boolean) {
 
         this.translation = new Translation();
         this.translation.originalText = text;
         this.translation.algorithmId = algorithmId;
         this.translation.algorithmName = algorithmName;
+        this.translation.algorithmReload = isReload;
 
         let body = JSON.stringify(this.translation);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-
 
         return this._http.post(this._url, body, options)
             .map(res => res.json());

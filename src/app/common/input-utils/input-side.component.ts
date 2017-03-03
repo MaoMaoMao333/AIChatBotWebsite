@@ -21,6 +21,10 @@ import {HttpModule} from '@angular/http';
             float: left;    
         }
 
+        .cb {
+
+            margin-left: 10px;
+        }
     `]
 })
 export class InputSideComponent implements OnInit, DoCheck {
@@ -30,6 +34,8 @@ export class InputSideComponent implements OnInit, DoCheck {
     private isLoading: boolean = false;
 
     private isScored: boolean = false;
+
+    private isReload: boolean = false;
 
     private score: number
 
@@ -81,7 +87,7 @@ export class InputSideComponent implements OnInit, DoCheck {
             this.isLoading = true;
             this.updateLoadingStatusEvent.emit({ status: this.isLoading });
 
-            this._translationService.postTranslation(this.textInput, this.selectedAlgorithmId, this.selectedAlgorithm)
+            this._translationService.postTranslation(this.textInput, this.selectedAlgorithmId, this.selectedAlgorithm, this.isReload)
                     .subscribe(translationResult => {
 
                         console.log(translationResult)
@@ -93,6 +99,8 @@ export class InputSideComponent implements OnInit, DoCheck {
                         this.isLoading = false;
 
                         this.updateLoadingStatusEvent.emit({ status: this.isLoading });
+
+                        this.isReload = false;
                     }
                     ,
                     error => {

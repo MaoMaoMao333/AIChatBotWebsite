@@ -12,7 +12,7 @@
               <span class="help-block">Please enter text above for translation.</span>
             </div>
           </div>
-        </div>
+        </div>      
         <div class="btn-group">
           <a href="#" class="btn btn-default">{{ selectedAlgorithm }}</a>
           <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></a>
@@ -22,10 +22,11 @@
             </li>
             <li class="divider"></li>
             <li><a href="#">Reset</a></li>
-          </ul>
-        </div>
+          </ul>          
+        </div>        
+        <input type="checkbox" class="cb" name="isReload" [(ngModel)]="isReload" /> Reload        
         <button (click)="translateText()" type="button" class="btn btn-default right">Translate</button>
-      </form>
+      </form>      
     </div>
   </div>
   <div class="panel panel-primary">

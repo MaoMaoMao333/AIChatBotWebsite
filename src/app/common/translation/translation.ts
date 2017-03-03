@@ -9,4 +9,5 @@ export class Translation {
     algorithmName: string;
     score: number;
     suggestedAnswer: string;
+    algorithmReload: boolean
 }

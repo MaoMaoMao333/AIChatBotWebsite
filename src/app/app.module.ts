@@ -3,6 +3,7 @@ import { BrowserModule }  from '@angular/platform-browser';
 import {ColorPickerService} from './common/color-picker/color-picker.service';
 import { AppComponent }       from './app.component';
 import { routing, appRoutingProviders } from './app.routing';
+import { FormsModule }   from '@angular/forms';
 
 import {AnalysisComponent} from './analysis/analysis.component';
 import {EvaluationComponent} from './evaluation/evaluation.component';
@@ -24,6 +25,7 @@ import {DisplayResultComponent} from './display-result/display-result.component'
 @NgModule({
     imports: [
         BrowserModule,
+        FormsModule,
         HttpModule,
         routing
     ],
