@@ -10,10 +10,12 @@ import {DisplayResultComponent} from '../display-result/display-result.component
     selector: 'analysis',
     template: `
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-12">
                 <input-side [suggestedAnswerTextInput]="suggestedAnswer" (updateTranslatedTextEvent)="updateTranslatedText($event)" (updateLoadingStatusEvent)="updateLoadingStatus($event)"></input-side>
             </div>
-            <div class="col-md-9">
+        </div>
+        <div class="row">    
+            <div class="col-md-12">
                 <display-result [urlInput]="url" [translatedTextInput]="translatedTextInput" [loadingStatusInput]="loadingStatusInput" (updateSuggestedAnswerTextEvent)="updateSuggestedAnswer($event)"></display-result>
             </div>
         </div>
